@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+	<div>
+      кнопки входу/виходу і реєстрації:
+       <% if user_signed_in? %>
+           <span>Здравствуйте, <%= current_user.email %></span>
+          <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+      <% else %>
+          <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+      <% end %>
+  </div>
+  <%=link_to 'Home',root_path%>
+  <%=link_to 'My Profile',profile_My_profile_path%>
+    <%= yield %>
+  </body>
+</html>

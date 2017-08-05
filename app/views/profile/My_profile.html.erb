@@ -1,0 +1,10 @@
+<h3>My profile</h3>
+<% if user_signed_in? %>
+Name:<%=current_user.username%><br>
+Email:<%=current_user.email%><br>
+<p>
+  <strong>Avatar:</strong>
+  <img src=<%= current_user.Avatar %> alt=""> 
+</p>
+<%= link_to 'Змінити дані',edit_user_registration_path%>
+<%end%>
